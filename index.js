@@ -45,7 +45,27 @@ client.lrange('frameworks_list', 0, -1, function (err, reply) {
 });
 
 //Sets are similar to lists, but the difference is that they don’t allow duplicates. So, if you don’t want any duplicate elements in your list, you can use a set, they say
+client.sadd(['frameworks_set', 'ReactJS', 'Angular', 'Svelte', 'VueJS', 'VueJS'], function (err, reply) {
+    console.log(reply); // 4
+});
+// Here, the length of the set is four, because Redis removes the VueJS duplicate as expected.
 
+client.smembers('frameworks_set', function (err, reply) {
+    console.log(reply); // [ 'Angular', 'ReactJS', 'VueJS', 'Svelte' ]
+}); //the order is not preserved while retrieving the members.
+
+
+
+//Time for operations
+
+//Checking for existing keys
+client.exists('framework', function (err, reply) {
+    if (reply === 1) {
+        console.log('Exists!'); //Exists!
+    } else {
+        console.log('Doesn\'t exist!');
+    }
+});
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
