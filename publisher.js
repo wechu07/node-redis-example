@@ -8,4 +8,5 @@ async function publish() {
     publisher.publish(channel, 'free');
 }
 
+
 publish();
