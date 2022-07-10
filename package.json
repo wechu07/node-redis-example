@@ -1,7 +1,7 @@
 {
   "name": "redis-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "I am learning redis with Nodejs from an [online tutorial by sitepoint](https://www.sitepoint.com/using-redis-node-js/#:~:text=Redis%20is%20a%20super%20fast,hashes%20and%20other%20data%20structures.)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,14 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "redis": "^3.1.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wechu07/node-redis-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wechu07/node-redis-example/issues"
+  },
+  "homepage": "https://github.com/wechu07/node-redis-example#readme"
 }
