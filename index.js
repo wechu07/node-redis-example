@@ -67,6 +67,24 @@ client.exists('framework', function (err, reply) {
     }
 });
 
+//Deleting and expiring keys
+client.del('frameworks_list', function (err, reply) {
+    console.log(reply); // 1
+});
+
+//expiration time to an existing key
+client.set('status', 'logged_in');
+client.expire('status', 300);
+
+//incrementing and decrementing keys
+client.set('working_days', 5, function () {
+    client.incr('working_days', function (err, reply) {
+        console.log(reply); // 6
+    });
+});
+
+//The incr() function increments a key value by 1. If you need to increment by a different amount, you can use the incrby() function. Similarly, to decrement a key you can use functions like decr() and decrby().
+
 app.listen(3000, () => {
     console.log('Serving on port 3000')
 })
